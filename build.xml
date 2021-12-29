@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="ear" name="ORGAVI">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/jee-2021-06/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="Referenced Libraries.libraryclasspath">
+        <pathelement location="lib/javax.servlet-api-4.0.1.jar"/>
+        <pathelement location="lib/ojdbc8-12.2.0.1.jar"/>
+        <pathelement location="lib/ucp-12.2.0.1.jar"/>
+        <pathelement location="lib/oraclepki-12.2.0.1.jar"/>
+        <pathelement location="lib/osdt_cert-12.2.0.1.jar"/>
+        <pathelement location="lib/osdt_core-12.2.0.1.jar"/>
+        <pathelement location="lib/simplefan-12.2.0.1.jar"/>
+        <pathelement location="lib/ons-12.2.0.1.jar"/>
+        <pathelement location="lib/tomcat-dbcp-8.0.5.jar"/>
+        <pathelement location="lib/tomcat-juli-8.0.5.jar"/>
+        <pathelement location="lib/gson-2.8.8.jar"/>
+        <pathelement location="lib/jstl-api-1.2.jar"/>
+        <pathelement location="lib/servlet-api-2.5.jar"/>
+        <pathelement location="lib/jsp-api-2.1.jar"/>
+        <pathelement location="lib/jstl-1.2.jar"/>
+        <pathelement location="lib/standard-1.1.2.jar"/>
+        <pathelement location="lib/log4j-core-2.14.1.jar"/>
+        <pathelement location="lib/log4j-api-2.14.1.jar"/>
+    </path>
+    <path id="ORGAVI.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <path refid="Referenced Libraries.libraryclasspath"/>
+    </path>
+    <path id="run.Main (6).classpath">
+        <path refid="ORGAVI.classpath"/>
+        <path refid="Referenced Libraries.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target/classes"/>
+        <mkdir dir="target/test-classes"/>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/test-classes">
+            <fileset dir="src/test/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/classes/dist/properties">
+            <fileset dir="src/conf/data-sources">
+                <exclude name="**/*.java"/>
+                <exclude name="**/OrgaviResources.properties"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target/classes"/>
+        <delete dir="target/test-classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <src path="src/conf/data-sources"/>
+            <!--<exclude name="**"/>-->
+            <classpath refid="ORGAVI.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/test/java"/>
+            <classpath refid="ORGAVI.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Main (6)">
+        <java classname="es.aragon.orgavi.bl.Main" failonerror="true" fork="yes">
+            <classpath refid="run.Main (6).classpath"/>
+        </java>
+    </target>
+          
+	<!--Creación del Java ARchive. Debe contener la lógica: los paquetes, .class y librerías jar/Maven-->
+  	<target name="jar" depends="build">
+		<!--<jar destfile="../jar/fichero.jar" includes="../class/**/*.class"/> -->  
+		<jar destfile="build/orgavi.jar" basedir="target/classes"/>
+  	</target>   
+
+	<!--Generación del Web ARchive. Debe contener las vistas y componentes web (html, jsp, js, css, img...), las clases de flujo-->
+	<target name="war" depends="jar">
+		<war destfile="build/orgavi.war" webxml="src/main/webapp/WEB-INF/web.xml">
+			<fileset dir="src/main/webapp"/><!--En la raíz del war sitúa todo el conenido de lo que haya en esta ruta. Los html, jsp, css, img, js y las carpetas WEB-INF y META-INF con su contenido (web.xml, application.xml, carpeta lib, Manifest.mf)F-->
+			<!--<lib dir="src/main/webapp/WEB-INF/lib"/>-->	
+			<lib dir="lib"/>
+            <classes dir="target/classes"><!--Genera la carpeta classes dentro de WEB-INF, e incluye en ella todo lo de la ruta del parámetro 'dir' de esta misma etiqueta. Las cogemos del compilado, no del proyecto-->
+			<!--<metainf dir="target/m2e-wtp/web-resources/META-INF"/>-->
+                    <exclude name="dist/"/>
+            </classes>
+		</war>
+	</target>
+	
+	<!--Generación del Enterprise ARchive. Es un contenedor que alberga el jar y el war.-->
+	<target name="ear" depends="war">	
+		<ear destfile="dist/orgavi.ear" appxml="src/main/webapp/WEB-INF/application.xml">
+        	<fileset file="build/orgavi.jar" />
+       		<fileset file="build/orgavi.war" />
+        	<metainf dir="src/main/webapp/META-INF">
+            	<exclude name="**/application.xml" />
+            	<exclude name="**/MANIFEST.MF" />
+        	</metainf>
+	   </ear>
+		<copy todir="dist/properties">
+		  <fileset dir="src/conf/data-sources">
+                <exclude name="**/OrgaviResources.properties"/>
+          </fileset>
+		</copy>
+	</target>
+	
+</project>

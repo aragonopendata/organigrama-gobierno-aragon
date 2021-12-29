@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+.c-h1{
+  font-size: 3.2rem;
+  font-weight: bold;
+  font-family: "Open Sans", Sans-serif !important;
+}
+.c-h2{
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-family: "Open Sans", Sans-serif !important;
+}
+.c-h3{
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Open Sans", Sans-serif !important;
+}
+.c-txt-small{
+  font-size: 1rem;
+}
+.c-t-md, p, ul, ol, details{font-size: 1.6rem; line-height: initial;}
+.c-t-lg { font-size: 1.8rem; }
+.c-t-sm { font-size: 1.4rem; }
+.c-link {
+  color: #0050A4;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.c-link-secondary {
+  color: #54575F !important;
+  text-decoration: underline;
+}
+.c-link-dark {
+  color: #000 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.c-t-semibold{
+  font-weight: 600;
+}
+ul,ol {list-style: none;
+  margin: 0; padding: 0;
+}
+.breadcrumb-item{
+  margin-bottom: 1rem;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+  margin-top: 0;
+  top: 4px;
+}
+.border-secondary{border-color: #92949B;}
+.text-secondary{color: #54575F !important}

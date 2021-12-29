@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application version='1.0.27'>
+  <display-name></display-name>
+  <module>
+    <java>orgavi.jar</java>
+  </module>
+  <module>
+    <web>
+      <web-uri>orgavi.war</web-uri>
+          <context-root>orgavi</context-root>
+    </web>
+  </module>
+</application>

@@ -1,0 +1,11 @@
+/build/**
+/dist/**
+/logs/app/orgavi/
+.settings/
+.classpath
+.project
+sonar-properties.properties
+!.gitkeep
+pom.xml
+/target/
+/app/

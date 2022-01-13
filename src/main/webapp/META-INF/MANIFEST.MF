@@ -1,2 +1,2 @@
 Implementation-Vendor: Novadevs
-Implementation-Version: 1.0.27
+Implementation-Version: 1.1.2

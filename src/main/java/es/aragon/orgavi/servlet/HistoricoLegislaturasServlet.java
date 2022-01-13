@@ -78,6 +78,13 @@ public class HistoricoLegislaturasServlet extends HttpServlet {
 		listaCargosLvl2 = modeloCargo.getHistoricalResponsables(id, 2); //parámetros: id de la legislatura, entidades de nivel 2
 		request.setAttribute("listaCargosLvl2", listaCargosLvl2);
 		
+		//Listado de links
+		String link_aragon_raiz = Propiedades.getRaizLink(1);
+		String link_aragon_servicios = Propiedades.getRaizLink(2);
+		
+		request.setAttribute("link_aragon_raiz", link_aragon_raiz);
+		request.setAttribute("link_aragon_servicios", link_aragon_servicios);
+		
 		//Devolución	
 		RequestDispatcher dis = request.getRequestDispatcher("/historico-legislaturas.jsp");
 		dis.forward(request, response);

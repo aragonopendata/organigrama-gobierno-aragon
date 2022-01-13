@@ -18,6 +18,7 @@ import es.aragon.orgavi.bl.CargoModel;
 import es.aragon.orgavi.bl.EntidadModel;
 import es.aragon.orgavi.dal.Cargo;
 import es.aragon.orgavi.dal.Entidad;
+import es.aragon.orgavi.util.Propiedades;
 
 /**
  * Servlet implementation class ServicioPage
@@ -67,6 +68,13 @@ public class Organismo2Servlet extends HttpServlet {
 		List<Cargo> listaEmpleados;
 		listaEmpleados = modeloCargo.getCargosByIDEntidadPadre(entidad_id);
 		request.setAttribute("listaEmpleados", listaEmpleados);
+		
+		//Listado de links
+		String link_aragon_raiz = Propiedades.getRaizLink(1);
+		String link_aragon_servicios = Propiedades.getRaizLink(2);
+		
+		request.setAttribute("link_aragon_raiz", link_aragon_raiz);
+		request.setAttribute("link_aragon_servicios", link_aragon_servicios);
 		
 		//Devolución
 		RequestDispatcher dis = request.getRequestDispatcher("/organismo-2.jsp");

@@ -95,10 +95,24 @@ public class IndexServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("lvl2.jsp");
 			dispatcher.forward(request, response);
 			break;
-		case 4://Obtención y pintado de la versión de la aplicación a partir del fichero de propiedades
+		case 4: //Obtención y pintado de la versión de la aplicación a partir del fichero de propiedades
 			String versionApp = "";
 			versionApp = Propiedades.getAppVersion();
 			salida.print(versionApp);
+			break;
+		case 5: //Generación del header con los links
+			String link_aragon_raizAlt = Propiedades.getRaizLink(1);
+			request.setAttribute("link_aragon_raiz", link_aragon_raizAlt);
+			RequestDispatcher disp = request.getRequestDispatcher("/header.jsp");
+			disp.forward(request, response);
+			break;
+		case 6: //Generación del footer con los links
+			String link_aragon_raiz = Propiedades.getRaizLink(1);
+			String link_aragon_servicios = Propiedades.getRaizLink(2);
+			request.setAttribute("link_aragon_raiz", link_aragon_raiz);
+			request.setAttribute("link_aragon_servicios", link_aragon_servicios);
+			RequestDispatcher dispatch = request.getRequestDispatcher("/footer.jsp");
+			dispatch.forward(request, response);
 			break;
 		default:	
 		}		

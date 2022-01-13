@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application version='1.0.27'>
+<application version='1.1.2'>
   <display-name></display-name>
   <module>
     <java>orgavi.jar</java>
@@ -7,7 +7,7 @@
   <module>
     <web>
       <web-uri>orgavi.war</web-uri>
-          <context-root>orgavi</context-root>
+          <context-root>organigrama-gobierno-aragon</context-root>
     </web>
   </module>
 </application>

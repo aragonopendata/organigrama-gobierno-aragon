@@ -27,17 +27,19 @@
 
   <div class="container-fluid dga-view px-0" id="wrapper">
     <header class="header" id="banner" aria-label="Cabecera" role="banner" tabindex="-1">
+      <c:set var="link_aragon_raiz" value="${link_aragon_raiz}"/>
+      <c:set var="link_aragon_servicios" value="${link_aragon_servicios}"/>
       <div class="navbar container">
         <div id="heading">
           <p class="site-title">
-            <a href="https://www.aragon.es" class="logo-dga" title="Ir a la página principal del portal.">
-              <img src="https://www.aragon.es/o/aragon-theme/images/dga/logo-dga-color.svg" height="50" alt='Gobierno de Aragón.'>
+            <a href="${link_aragon_raiz}" class="logo-dga" title="Ir a la página principal del portal.">
+              <img src="${link_aragon_raiz}o/aragon-theme/images/dga/logo-dga-color.svg" height="50" alt='Gobierno de Aragón.'>
             </a>
           </p>
         </div>
         <div class="navigation">
-          <a href="https://www.aragon.es/-/fondos-europeos-aragon" class="european-flag-head" title="Más información sobre los Fondos Estructurales y de Inversión Europeos y Fondo Next Generation EU en Aragón">
-            <img class="image" src="https://www.aragon.es/o/aragon-theme/images/dga/flag_europe.svg"  alt="Unión Europea">
+          <a href="${link_aragon_raiz}-/fondos-europeos-aragon" class="european-flag-head" title="Más información sobre los Fondos Estructurales y de Inversión Europeos y Fondo Next Generation EU en Aragón">
+            <img class="image" src="${link_aragon_raiz}o/aragon-theme/images/dga/flag_europe.svg"  alt="Unión Europea">
           </a>
           <ul class="zoom hidden-xs">
             <li class="zoom__pos"><a aria-disabled="false" tabindex="0">A<sup>+</sup><span class="oculto">Aumentar el tamaño de texto un 200%</span></a></li>
@@ -127,7 +129,7 @@
         <c:if test="${isLvl1 == false}">
         <c:set var="tipoA" value="${listaEntidadesHijaTipoA}"/>
         <c:if test="${not empty tipoA}">
-        <h2 class="c-h2 mb-4">Administraciones</h2>
+        <h2 class="c-h2 mb-4">Estructura</h2>
         <ul class="c-t-lg mb-5 pb-5 border-top">
         <c:forEach var="tempInfoHija" items="${listaEntidadesHijaTipoA}">
           <li class="pb-4 pt-4 border-bottom ">
@@ -175,7 +177,7 @@
         </c:if>
         <c:set var="tipoI" value="${listaEntidadesHijaTipoI}"/>
         <c:if test="${not empty tipoI}">
-        <h2 class="c-h2 mb-4">Institutos</h2>
+        <h2 class="c-h2 mb-4">Organismos autónomos</h2>
         <ul class="c-t-lg mb-5 pb-5 border-top">
         <c:forEach var="tempInfoHija" items="${listaEntidadesHijaTipoI}">
           <li class="pb-4 pt-4 border-bottom ">
@@ -193,7 +195,7 @@
     </main>
 
     <footer id="footer" role="contentinfo" class="footer mt-5" tabindex="-1">
-      <div class="portlet-boundary portlet-boundary_com_liferay_journal_content_web_portlet_JournalContentPortlet_ portlet-static portlet-static-end portlet-barebone portlet-journal-content " id="p_p_id_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_footerContentBottom_">
+       <div class="portlet-boundary portlet-boundary_com_liferay_journal_content_web_portlet_JournalContentPortlet_ portlet-static portlet-static-end portlet-barebone portlet-journal-content " id="p_p_id_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_footerContentBottom_">
         <section class="portlet" id="portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_footerContentBottom">
           <div class="portlet-content">
             <div class="portlet-content-container">
@@ -202,48 +204,48 @@
                   <div class="footer__policies">
                     <ul class="container footer__policies__listado">
                       <li class="logo link">
-                        <a href="http://servicios.aragon.es/sus_publico/PublicoServlet?accion=1" class="hidden-md hidden-lg u-btn u-btn-red"><strong>Suscripciones</strong></a>
+                        <a href="${link_aragon_servicios}sus_publico/PublicoServlet?accion=1" class="hidden-md hidden-lg u-btn u-btn-red"><strong>Suscripciones</strong></a>
                       </li>
                       <li class="logo-eu link hidden-sm hidden-sm hidden-md hidden-lg">
-                        <a href="http://www.aragon.es/Fondos_Europeos" class="european-flag" title="Más información sobre los Fondos Estructurales y de Inversión Europeos (Fondos EIE)" target="_blank" rel="noopener">
-                          <img class="image" src="https://www.aragon.es/o/aragon-theme/images/dga/flag_europe.svg" alt="Unión Europea">
+                        <a href="${link_aragon_raiz}Fondos_Europeos" class="european-flag" title="Más información sobre los Fondos Estructurales y de Inversión Europeos (Fondos EIE)" target="_blank" rel="noopener">
+                          <img class="image" src="${link_aragon_raiz}o/aragon-theme/images/dga/flag_europe.svg" alt="Unión Europea">
                           <p class="claim">
                           <span>Fondo Europeo de Desarrollo Regional </span>
                           </p>
                           <p class="sub-claim">"Construyendo Europa desde Aragón"</p>
                         </a>
                       </li>
-                      <li class="link"><a href="https://www.aragon.es/">Inicio</a></li>
-                      <li class="link"><a href="https://www.aragon.es/-/aviso-legal-1">Aviso Legal</a></li>
-                      <li class="link"><a href="https://www.aragon.es/-/detalle-sobre-las-cookies-en-el-portal-de-servicios-del-gobierno-de-aragon">Política de cookies</a></li>
-                      <li class="link"><a href="https://www.aragon.es/-/politica-de-privacidad">Política de privacidad</a></li>
-                      <li class="link"><a href="https://www.aragon.es/-/accesibilidad">Accesibilidad</a></li>
-                      <li class="link"><a href="https://www.aragon.es/mapa-web">Mapa Web</a></li>
-                      <li class="link cta hidden-xs hidden-sm"><a href="http://servicios.aragon.es/sus_publico/PublicoServlet?accion=1" class="u-btn u-btn-red"><strong>Suscripciones</strong></a></li>
+                      <li class="link"><a href="${link_aragon_raiz}">Inicio</a></li>
+                      <li class="link"><a href="${link_aragon_raiz}-/aviso-legal-1">Aviso Legal</a></li>
+                      <li class="link"><a href="${link_aragon_raiz}-/detalle-sobre-las-cookies-en-el-portal-de-servicios-del-gobierno-de-aragon">Política de cookies</a></li>
+                      <li class="link"><a href="${link_aragon_raiz}-/politica-de-privacidad">Política de privacidad</a></li>
+                      <li class="link"><a href="${link_aragon_raiz}-/accesibilidad">Accesibilidad</a></li>
+                      <li class="link"><a href="${link_aragon_raiz}mapa-web">Mapa Web</a></li>
+                      <li class="link cta hidden-xs hidden-sm"><a href="${link_aragon_servicios}sus_publico/PublicoServlet?accion=1" class="u-btn u-btn-red"><strong>Suscripciones</strong></a></li>
                     </ul>
                   </div>
                   <div class="footer__rrss-contact container">
                     <div class="row">
                       <ul class="col-xs-12 col-sm-12 col-md-3 rrss">
                         <li>
-                          <a href="http://www.youtube.com/user/GobiernoAragon" class="icon-rrss"><img src="https://www.aragon.es/documents/20127/185258/youtube.jpg/265feae0-4185-4eae-dc88-f989c6c30e43?t=1560274281563" alt="YouTube. Ir al canal del Gobierno de Aragón."></a>
+                          <a href="http://www.youtube.com/user/GobiernoAragon" class="icon-rrss"><img src="./img/youtube.jpg" alt="YouTube. Ir al canal del Gobierno de Aragón."></a>
                         </li>
                         <li>
-                         <a href="https://www.facebook.com/GobAragon" class="icon-rrss"><img src="https://www.aragon.es/documents/20127/185258/facebook.jpg/3d6a39c0-befe-e18d-7fe8-6ea04bf462ce?t=1560274299851" alt="Facebook. Ir al facebook del Gobierno de Aragón."></a>
+                         <a href="https://www.facebook.com/GobAragon" class="icon-rrss"><img src="./img/facebook.jpg" alt="Facebook. Ir al facebook del Gobierno de Aragón."></a>
                         </li>
                         <li>
-                          <a href="https://twitter.com/GobAragon" class="icon-rrss"><img src="https://www.aragon.es/documents/20127/185258/twitter.jpg/cce68d2f-088d-4103-df24-26895a8b339a?t=1560274293648" alt="Twitter. Ir al twitter del Gobierno de Aragón."></a>
+                          <a href="https://twitter.com/GobAragon" class="icon-rrss"><img src="./img/twitter.jpg" alt="Twitter. Ir al twitter del Gobierno de Aragón."></a>
                         </li>
                         <li>
-                          <a href="https://www.instagram.com/gobaragon/?hl=es" class="icon-rrss"><img src="https://www.aragon.es/documents/20127/185258/instagram+%283%29.png/d97c46d6-dd1c-5480-439d-f33f1b403d9b?t=1603706682623" alt="Instagram. Ir al instagram del Gobierno de Aragón."></a>
+                          <a href="https://www.instagram.com/gobaragon/?hl=es" class="icon-rrss"><img src="./img/instagram.jpg" alt="Instagram. Ir al instagram del Gobierno de Aragón."></a>
                         </li>
                       </ul>
                       <div class="col-xs-12 col-sm-12 col-md-6">
                         <span class="name">Gobierno de Aragón</span>
                         <span>Edificio Pignatelli. Pº María Agustín, 36. 50004 - Zaragoza - <abbr title="Teléfono">Tfno.</abbr> <a href="tel:+34976714000">+34 976714000</a></span>
                       </div>
-                      <a href="/-/fondos-europeos-gobierno-de-aragon" class="hidden-xs col-sm-3 european-flag" title="Más información sobre los Fondos Estructurales y de Inversión Europeos (Fondos EIE)">
-                        <img class="image mx-auto" src="https://www.aragon.es/o/aragon-theme/images/dga/flag_europe.svg" alt="Unión Europea">
+                      <a href="${link_aragon_raiz}-/fondos-europeos-aragon" class="hidden-xs col-sm-3 european-flag" title="Más información sobre los Fondos Estructurales y de Inversión Europeos (Fondos EIE)">
+                        <img class="image mx-auto" src="${link_aragon_raiz}o/aragon-theme/images/dga/flag_europe.svg" alt="Unión Europea">
                         <p class="claim">
                           <span>Fondo Europeo de Desarrollo Regional </span>
                         </p>

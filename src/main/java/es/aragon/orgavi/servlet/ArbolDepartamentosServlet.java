@@ -2,6 +2,8 @@ package es.aragon.orgavi.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -73,6 +75,13 @@ public class ArbolDepartamentosServlet extends HttpServlet {
 			List<Entidad> listaEntidadesLvl4;
 			listaEntidadesLvl4 = modeloEntidad.getIdNameEntityByLvl(id, 4); //parámetros: id de la legislatura, nivel 4
 			request.setAttribute("listaEntidadesLvl4", listaEntidadesLvl4);
+			
+			//Listado de links
+			String link_aragon_raiz = Propiedades.getRaizLink(1);
+			String link_aragon_servicios = Propiedades.getRaizLink(2);
+			
+			request.setAttribute("link_aragon_raiz", link_aragon_raiz);
+			request.setAttribute("link_aragon_servicios", link_aragon_servicios);
 			
 			//Devolución
 			RequestDispatcher dis = request.getRequestDispatcher("/arbol-departamentos.jsp");

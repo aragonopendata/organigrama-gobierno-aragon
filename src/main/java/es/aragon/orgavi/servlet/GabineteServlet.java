@@ -61,6 +61,13 @@ public class GabineteServlet extends HttpServlet {
 			}
 			request.setAttribute("listaCargosGabinete", listaCargosGabinete);
 		
+			//Listado de links
+			String link_aragon_raiz = Propiedades.getRaizLink(1);
+			String link_aragon_servicios = Propiedades.getRaizLink(2);
+			
+			request.setAttribute("link_aragon_raiz", link_aragon_raiz);
+			request.setAttribute("link_aragon_servicios", link_aragon_servicios);
+			
 			//Devolución
 			RequestDispatcher dis = request.getRequestDispatcher("/gabinete.jsp");
 			dis.forward(request, response);

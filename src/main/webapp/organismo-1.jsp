@@ -7,8 +7,8 @@
   <c:set var="entidadSeleccionada" value="${entidadSeleccionada}"/>
   <title><c:out value="${entidadSeleccionada.nombre}"/> del Gobierno de Aragón</title>
   <link rel="icon" type="image/x-icon" href="https://aplicaciones.aragon.es/favicon.ico">
-  <link href="https://www.aragon.es/o/aragon-theme/css/main.css" rel="stylesheet" type="text/css">
-  <link href="https://www.aragon.es/o/aragon-theme/css/clay.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/clay.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +90,7 @@
               </ul>
 	          <h3 class="sr-only">Información adicional</h3>
               <c:if test="${departamento.responsable_agenda != null }">
-              	<p class="mb-3"><a class="c-link" href="${departamento.responsable_agenda }" title="link externo a la Agenda del ${departamento.nombre }">Agenda <span class="sr-only">de <c:out value="${departamento.responsable_cargo }"/></span><svg class="align-middle d-inline-block ml-2" style="fill:currentColor;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="#000000" aria-hidden="true" focusable="false"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></p>
+              	<p class="mb-3"><a class="c-link" href="${departamento.responsable_agenda }" title="Ver Agenda del ${departamento.nombre }">Agenda <span class="sr-only">de <c:out value="${departamento.responsable_cargo }"/></span><svg class="align-middle d-inline-block ml-2" style="fill:currentColor;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="#000000" aria-hidden="true" focusable="false"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></p>
               </c:if>
               <c:set var="hasGabinete" value="${hasGabinete}"/>
               <c:if test="${hasGabinete == true}">

@@ -54,7 +54,7 @@ public class Organismo2Servlet extends HttpServlet {
 		entidad = modeloEntidad.getEntidadById(entidad_id);
 		request.setAttribute("entidadSeleccionada", entidad);
 
-		//Info de la entidad y del cargo m�ximo responsable de la misma
+		//Info de la entidad y del cargo máximo responsable de la misma
 		Entidad departamento;
 		departamento = modeloEntidad.getDepartamentoById(entidad_id, 1);
 		request.setAttribute("infoDepartamento", departamento);

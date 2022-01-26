@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jerarquía de departamentos - Organigrama del Gobierno de Aragón</title>
   <link rel="icon" type="image/x-icon" href="https://aplicaciones.aragon.es/favicon.ico">
-  <link href="https://www.aragon.es/o/aragon-theme/css/main.css" rel="stylesheet" type="text/css">
-  <link href="https://www.aragon.es/o/aragon-theme/css/clay.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/clay.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -161,5 +161,21 @@
 </div>
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="js/main.js"></script>
+ <script>
+ window.onload = function() {
+     var list = document.getElementsByTagName("UL");
+     var eraseList = new Array();
+     for (var item of list) {
+         if (item.children.length == 0) {
+             eraseList.push(item);
+         }
+     }
+     var fLen = eraseList.length; 
+     for (let i = 0; i < fLen; i++) {
+         var padre = eraseList[i].parentNode;
+         padre.removeChild(eraseList[i]);
+     }
+ }
+</script>
 </body>
 </html>

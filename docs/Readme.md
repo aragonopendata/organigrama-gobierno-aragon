@@ -7,9 +7,9 @@ Al no existir dependencias de caché o autenticaciones no se demanda ningún req
 La periodicidad a la hora de realizar copias de seguridad tampoco se aplica al estar presente el código en el repositorio, ya que la aplicación no realiza cambio alguno en el código.
 ## Problemáticas conocidas y propuestas de solución
 1. Caso de no existir conexión con la base de datos, las vistas mostrarán su estructura básica pero faltas de contenido. Propuesta de solución: comprobación de la conexión entre la aplicación y la base de datos acudiendo a la url de monitorización de la aplicación en función del entorno que nos encontremos:
-- <https://desaplicaciones.aragon.es/orgavi/test.jsp> para desarrollo
-- <https://preaplicaciones.aragon.es/orgavi/test.jsp> para preproducción
-- <https://aplicaciones.aragon.es/orgavi/test.jsp> para producción
+- <https://desaplicaciones.aragon.es/organigrama-gobierno-aragon/test.jsp> para desarrollo
+- <https://preaplicaciones.aragon.es/organigrama-gobierno-aragon/test.jsp> para preproducción
+- <https://aplicaciones.aragon.es/organigrama-gobierno-aragon/test.jsp> para producción
 
 Si nos devuelve el valor *OK* la conexión entre la aplicación y la base de datos es correcta.
 Si nos devuelve el valor *KO* existe un problema de conexión entre la aplicación y la base de datos y esta debería tratar de restablecerse para que la aplicación pudiera funcionar correctamente. El problema puede radicar en los parámetros de configuración de la conexión, para lo que recomendamos revisar el fichero `OrgaviResources.properties` del entorno correspondiente:

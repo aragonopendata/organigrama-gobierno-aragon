@@ -7,8 +7,8 @@
   <c:set var="entidadSeleccionada" value="${entidadSeleccionada}"/>
   <title><c:out value="${entidadSeleccionada.nombre}"/> del Gobierno de Aragón</title>
   <link rel="icon" type="image/x-icon" href="https://aplicaciones.aragon.es/favicon.ico">
-  <link href="https://www.aragon.es/o/aragon-theme/css/main.css" rel="stylesheet" type="text/css">
-  <link href="https://www.aragon.es/o/aragon-theme/css/clay.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/clay.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -85,6 +85,9 @@
                 	<li class="mb-2"><svg class="align-middle d-inline-block mr-2" xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 24 24" width="1.2em" fill="#F05442" aria-label="Correo electrónico" role="img"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> <a href="mailto:${departamento.email }" class="text-secondary" title="mandar correo a ${departamento.nombre }"><c:out value="${departamento.email }"/></a></li>
                 </c:if>
               </ul>
+              <c:if test="${departamento.responsable_agenda != null }">
+              	<p class="mb-3"><a class="c-link" href="${departamento.responsable_agenda }" title="Ver Agenda del ${departamento.nombre }">Agenda <span class="sr-only">de <c:out value="${departamento.responsable_cargo }"/></span><svg class="align-middle d-inline-block ml-2" style="fill:currentColor;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="#000000" aria-hidden="true" focusable="false"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></p>
+              </c:if>
               <c:if test="${departamento.responsable_biografia != null }">
               <details>
                 <summary class="c-link c-t-semibold" title="Desplegar información de Biografía">Biografía</summary>
